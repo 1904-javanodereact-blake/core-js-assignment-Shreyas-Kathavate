@@ -21,5 +21,59 @@ Example for printShape("Diamond", 5, "*");
   * 
 */
 function printShape(shape, height, character) {
-  
+    if (height % 2 == 0) {
+        console.log("provide an odd number");
+    } else {
+        switch (shape) {
+            case `Square`:
+                for (let i = 0; i < height; i++) {
+                    let a = '';
+                    for (let j = 0; j < height; j++) {
+                        a += character + '';
+                    }
+                    console.log(a);
+                }
+                break;
+            case 'Triangle':
+                for (let i = 0; i < height; i++) {
+                    let a = '';
+                    for (let j = 0; j < i; j++) {
+                        a += character;
+                    }
+                    console.log(a);
+                }
+                break;
+            case 'Diamond':
+                char = character;
+                let a = '';
+                let counter = 0;
+                let n = Math.floor(height / 2);
+                for (let i = 1; i < height; i += 2) {
+                    a = '';
+                    for (let j = 0; j < n; j++) {
+                        a = a + ' ';
+                    }
+                    n--;
+                    for (let j = 0; j < i; j++) {
+                        a = a + char;
+                    }
+                    console.log(a);
+                }
+                for (let i = height; i > 0; i -= 2) {
+                    a = '';
+                    for (let j = 0; j < counter; j++) {
+                        a = a + ' ';
+                    }
+                    counter++;
+                    for (let j = 0; j < i; j++) {
+                        a = a + char;
+                    }
+                    console.log(a);
+                }
+                break;
+        }
+    }
 }
+printShape('Square', 7, '%');
+printShape('Triangle', 9, `$`);
+printShape('Diamond', 15, '#')
